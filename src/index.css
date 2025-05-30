@@ -1,0 +1,32 @@
+/* Barcha elementlar uchun padding va marginni olib tashlaymiz, box-sizing ni o'rnatamiz */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Butun body uchun qora fon va oq matn */
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+}
+
+/* Linklar uchun oddiy effekt */
+a {
+  color: #ec4899; /* pink rang */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #f43f5e; /* biroz yorqinroq pushti */
+}
+
+/* Container uchun markazlashtirish */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
