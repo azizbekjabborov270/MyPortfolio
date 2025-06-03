@@ -1,99 +1,97 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
-// Glow animatsiyasi Logo uchun
-const glow = keyframes`
-  0%, 100% {
-    text-shadow:
-      0 0 5px #ec4899,
-      0 0 10px #ec4899,
-      0 0 20px #ec4899,
-      0 0 40px #f472b6;
-  }
-  50% {
-    text-shadow:
-      0 0 10px #f472b6,
-      0 0 20px #f472b6,
-      0 0 30px #ec4899,
-      0 0 50px #f43f5e;
-  }
-`;
 
-// Logo component
-const Logo = styled.h1`
-  font-size: 2.2rem;
-  color: #ec4899;
-  font-weight: bold;
-  letter-spacing: 3px;
-  cursor: default;
-  animation: ${glow} 3s ease-in-out infinite;
-  user-select: none;
-`;
+
 
 // Header container
-const HeaderContainer = styled.header`
-  position: fixed;
+const HeaderContainer = styled(motion.header)`
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  width: 100%;
-  padding: 20px 40px;
-  background: linear-gradient(to right, #1f1f1f, #2b2b2b);
+  z-index: 999;
+  backdrop-filter: blur(12px);
+  background: rgba(31, 31, 31, 0.6);
+  box-shadow: 0 4px 20px rgba(236, 72, 153, 0.2);
+  padding: 1rem 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 4px 20px rgba(255, 20, 147, 0.3);
 `;
 
+// Neon glow logo
+const Logo = styled(motion.h1)`
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ec4899;
+  text-shadow:
+    0 0 5px #ec4899,
+    0 0 15px #ec4899,
+    0 0 30px #f43f5e,
+    0 0 45px #f43f5e;
+  user-select: none;
+  cursor: default;
+`;
 
-// Nav container
+// Navigation
 const Nav = styled.nav`
   display: flex;
-  gap: 20px;
+  gap: 2rem;
 `;
 
-// Styled Link with advanced hover effect
-const StyledLink = styled(Link)`
+// Nav Item with 3D hover effect
+const NavLink = styled(motion(Link))`
+  position: relative;
+  font-size: 1rem;
   color: #fff;
   text-decoration: none;
-  font-size: 1rem;
-  position: relative;
-  transition: color 0.3s ease;
-
-  &:before {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: #ec4899;
-    transition: width 0.3s ease;
-    border-radius: 2px;
-  }
+  font-weight: 600;
+  padding: 8px 12px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  perspective: 1000px;
 
   &:hover {
     color: #ec4899;
-    text-shadow: 0 0 10px rgba(236, 72, 153, 0.8);
+    transform: rotateX(10deg) rotateY(10deg) scale(1.1);
+    text-shadow: 0 0 10px #ec4899;
   }
 
-  &:hover:before {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background: #ec4899;
+    transition: width 0.4s ease;
+  }
+
+  &:hover::after {
     width: 100%;
   }
 `;
 
 const Header = () => {
   return (
-    <HeaderContainer>
-      <Logo>MyPortfolio</Logo>
+    <HeaderContainer
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
+      <Logo
+        initial={{ scale: 0.8 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1.2 }}
+      >
+        MyPortfolio
+      </Logo>
       <Nav>
-        <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/about">About</StyledLink>
-        <StyledLink to="/projects">Projects</StyledLink>
-        <StyledLink to="/contact">Contact</StyledLink>
-        <StyledLink to="/clients">Clients</StyledLink>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/projects">Projects</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
       </Nav>
     </HeaderContainer>
   );

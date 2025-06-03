@@ -1,0 +1,61 @@
+    /* .skills-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 40px 0;
+    background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
+    min-height: 60vh;
+    animation: fadeIn 1.2s cubic-bezier(.77,0,.18,1);
+    }
+
+    @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+    }
+
+    .circle-stat {
+    display: inline-block;
+    text-align: center;
+    margin: 0 20px;
+    transition: transform 0.3s cubic-bezier(.77,0,.18,1), box-shadow 0.3s;
+    border-radius: 16px;
+    padding: 16px 8px 8px 8px;
+    background: #fff;
+    box-shadow: 0 2px 16px 0 rgba(52, 152, 219, 0.08);
+    cursor: pointer;
+    }
+
+    .circle-stat:hover {
+    transform: translateY(-10px) scale(1.07) rotate(-2deg);
+    box-shadow: 0 8px 32px 0 rgba(52, 152, 219, 0.18);
+    }
+
+    .circle-svg {
+    display: block;
+    margin: 0 auto;
+    }
+
+    .circle-bg {
+    stroke: #e6e6e6;
+    fill: none;
+    }
+
+    .circle-fg {
+    stroke: #3498db;
+    fill: none;
+    stroke-linecap: round;
+    transition: stroke 0.3s, stroke-dashoffset 1s cubic-bezier(.77,0,.18,1);
+    }
+
+    .circle-stat:hover .circle-fg {
+    stroke: #1abc9c;
+    }
+
+    .circle-label {
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    color: #222;
+    } */
